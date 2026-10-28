@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #202124;
+  background: #f7f7f7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.juego {
+  width: min(100% - 28px, 500px);
+  margin: 0 auto;
+  padding: 24px 0 36px;
+  text-align: center;
+}
+
+.cabecera {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #d3d6da;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 2.7rem);
+  letter-spacing: 0.12em;
+  font-weight: 800;
+}
+
+.cabecera p {
+  margin: 7px 0 0;
+  color: #5f6368;
+  font-size: 0.95rem;
+}
+
+.tablero {
+  display: grid;
+  gap: 7px;
+  margin: 24px auto;
+}
+
+.fila {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+.casilla {
+  width: min(17vw, 58px);
+  height: min(17vw, 58px);
+  max-width: 58px;
+  max-height: 58px;
+  min-width: 43px;
+  min-height: 43px;
+  padding: 0;
+  border: 2px solid #878a8c;
+  border-radius: 3px;
+  background: #fff;
+  color: #202124;
+  font-size: clamp(1.4rem, 6vw, 2rem);
+  font-weight: 750;
+  text-align: center;
+  text-transform: uppercase;
+  caret-color: transparent;
+}
+
+.casilla:disabled {
+  opacity: 1;
+  -webkit-text-fill-color: currentColor;
+}
+
+.casilla:focus-visible,
+.boton:focus-visible,
+.tecla:focus-visible {
+  outline: 3px solid #1a73e8;
+  outline-offset: 3px;
+}
+
+.casilla.correcta,
+.tecla.correcta {
+  background: #2e7d32;
+  border-color: #2e7d32;
+  color: #fff;
+}
+
+.casilla.presente,
+.tecla.presente {
+  background: #f2c94c;
+  border-color: #f2c94c;
+  color: #202124;
+}
+
+.casilla.ausente,
+.tecla.ausente {
+  background: #5f6368;
+  border-color: #5f6368;
+  color: #fff;
+}
+
+.boton {
+  padding: 11px 22px;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.principal {
+  background: #202124;
+  color: #fff;
+}
+
+.boton:hover:not(:disabled) {
+  background: #3c4043;
+}
+
+.aviso {
+  margin: 8px 0 14px;
+  color: #a4262c;
+  font-weight: 700;
+}
+
+.resultado {
+  margin: 16px 0 22px;
+}
+
+.resultado p {
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+.teclado {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 28px auto 18px;
+}
+
+.tecla {
+  min-width: 30px;
+  min-height: 42px;
+  padding: 0 8px;
+  border: 1px solid #d3d6da;
+  border-radius: 4px;
+  background: #e2e5e9;
+  color: #202124;
+  font-size: 0.9rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.tecla-extra {
+  min-width: 44px;
+}
+
+.tecla:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.ayuda {
+  max-width: 420px;
+  margin: 24px auto 0;
+  color: #5f6368;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 380px) {
+  .juego {
+    width: calc(100% - 18px);
+    padding-top: 16px;
+  }
+
+  .fila {
+    gap: 4px;
+  }
+
+  .casilla {
+    min-width: 0;
+    min-height: 0;
+    width: calc((100vw - 48px) / 5);
+    height: calc((100vw - 48px) / 5);
+  }
+
+  .teclado {
+    gap: 4px;
+  }
+
+  .tecla {
+    min-width: 26px;
+    padding: 0 5px;
+  }
+}
